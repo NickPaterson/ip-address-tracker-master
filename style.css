@@ -1,0 +1,136 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* Typography */
+body {
+    font-family: 'Karla', sans-serif;
+    font-size: 18px;
+}
+
+/* Layout */
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: "header" "data" "map" "footer";
+    grid-template-rows: 360px 60px 1fr 0px;
+}
+header  { grid-area: header;    }
+.data-response { grid-area: data;    }
+#map     { grid-area: map;       }
+footer  { grid-area: footer;    }
+
+/* Header */
+header {
+    background: rgba(62, 66, 188, 0.849);
+    background-image: url("/images/pattern-bg.png");
+    background-size: cover;
+    padding: 2em;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+fieldset {
+    border: none;
+    display: flex;
+    justify-content: center;
+}
+.search {
+    display: inline-block;
+    height: 60px;
+    max-width: 500px;
+    margin: 1em 0;
+    flex: 1;
+    border: none;
+    border-radius: 15px 0 0 15px;
+    padding: 0 1em;
+    font-size: 1.1em;
+    color: hsl(0, 0%, 17%);
+}
+.submit-btn {
+    height: 60px;
+    width: 60px;
+    margin: 1em 0;
+    border: none;
+    border-radius: 0 15px 15px 0;
+    background: hsl(0, 0%, 17%);
+    font-size: 1.1em;
+}
+
+/* Response bar  */
+.data-response {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "ip"
+                         "location"
+                         "timezone"
+                         "isp";
+}
+
+
+.data-response {
+    width: 100%;
+    background: #FFF;
+    border-radius: 15px;
+    margin-top: -200px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 560px;
+}
+.data-response-ip       { grid-area: ip; }
+.data-response-location { grid-area: location; }
+.data-response-timezone { grid-area: timezone; }
+.data-response-isp      { grid-area: isp; }
+
+.data-response-ip,
+.data-response-location,
+.data-response-timezone,
+.data-response-isp {
+    text-align: center;
+}
+.data-response h2 {
+    text-transform: uppercase;
+    color: hsl(0, 0%, 59%);
+    font-size: 0.8em;
+    letter-spacing: .05em;
+    margin: 1.5em 0 .25em;
+}
+.data-response p {
+    font-size: 1.2em;
+    color: hsl(0, 0%, 17%);
+    font-weight: 700;
+    margin-bottom: .5em;
+}
+
+
+@media (min-width: 800px) {
+    .data-response {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas: "ip location timezone isp";
+        max-width: 1000px;
+        padding: 1.5em;
+    }
+    .data-response > div:not(:last-child) {
+        border-right: 1px solid hsl(0, 5%, 81%);
+    }
+    .data-response h2,
+    .data-response p {
+        margin: 0;
+        text-align: left;
+        padding-left: 1rem;
+    }
+}
+
+/* map */
+
+#map {
+    min-height: 300px;
+    height: 100%;
+    flex: 1;
+    margin: 70px 0 0 0;
+    width: 100vw;
+
+}

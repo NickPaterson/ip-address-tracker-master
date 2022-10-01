@@ -5,30 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | IP Address Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <title>IP Address Tracker</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  
+  <link 
+      rel="stylesheet" href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css"
+      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+      crossorigin="" >
+  <script 
+      src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js"
+      integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s="
+      crossorigin="" >
+  </script>
 </head>
 <body>
-
-  IP Address Tracker
-
-  Search for any IP address or domain
-
-  IP Address
-  Location
-  Timezone
-    UTC <!-- add offset value dynamically using the API -->
-  ISP
+  <header>
+    <h1>IP Address Tracker</h1>
+    <form>
+      <fieldset>
+        <input type="search" name="search" id="search" class="search" placeholder="Search for any IP address or domain">
+        <button type="submit" id="submit" class="submit-btn"><img src="./images/icon-arrow.svg" alt="arrow"></button>
+      </fieldset>
+    </form>
+  </header>
   
-  <div class="attribution">
+  <main>
+    <div id="data-response" class="data-response">
+      <div id="data-response-ip" class="data-response-ip">
+        <h2>IP Address</h2>
+        <p id="ip">192.212.174.101</p>
+      </div>
+      <div id="data-response-location" class="data-response-location">
+        <h2>Location</h2>
+        <p id="location">Brooklyn, NY 10001</p>
+      </div>
+      <div id="data-response-timezone" class="data-response-timezone">
+        <h2>Timezone</h2><!-- add offset value dynamically using the API -->
+        <p id="timezone">UTC- -05:00</p>
+      </div>
+      <div id="data-response-isp" class="data-response-isp">
+        <h2>ISP</h2>
+        <p id="isp">SpaceX Starlink</p>
+      </div>
+    </div>
+    <div id="map"></div>
+
+
+  </main>
+  <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+    Coded by <a href="#">Nick Paterson</a>.
+  </footer>
+  <script src="index.js"></script>
 </body>
 </html>
