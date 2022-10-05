@@ -15,24 +15,31 @@ body {
 body {
     min-height: 100vh;
     display: grid;
-    grid-template-areas: "header" "data" "map" "footer";
-    grid-template-rows: 360px 60px 1fr 0px;
+    grid-template-areas: "header" "map";
+    grid-template-rows: 339px 1fr;
+}
+@media (min-width: 800px) {
+    body { grid-template-rows: 240px 1fr; }
 }
 header  { grid-area: header;    }
-.data-response { grid-area: data;    }
 #map     { grid-area: map;       }
-footer  { grid-area: footer;    }
 
 /* Header */
 header {
+    position: relative;
     background: rgba(62, 66, 188, 0.849);
     background-image: url("/images/pattern-bg.png");
     background-size: cover;
-    padding: 2em;
     width: 100%;
     text-align: center;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
 }
+
+/* Search bar */
 fieldset {
     border: none;
     display: flex;
@@ -68,18 +75,14 @@ fieldset {
                          "location"
                          "timezone"
                          "isp";
-}
-
-
-.data-response {
     width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
     background: #FFF;
     border-radius: 15px;
-    margin-top: -200px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 560px;
+    z-index: 999;
 }
+
 .data-response-ip       { grid-area: ip; }
 .data-response-location { grid-area: location; }
 .data-response-timezone { grid-area: timezone; }
@@ -130,7 +133,7 @@ fieldset {
     min-height: 300px;
     height: 100%;
     flex: 1;
-    margin: 70px 0 0 0;
+    margin: 0;
     width: 100vw;
 
 }
