@@ -10,9 +10,6 @@ const updateMap = (lat = 51.507351, lng = -0.127758) => {
     L.marker([lat, lng]).addTo(map);
 }
 
-updateMap();
-
-
 // GEO IPIFY API
 const GEO_API_KEY = 'at_AaNm22aV7tpXnALrpZqYLIVcjjBHG';
 const GEO_URL = `https://geo.ipify.org/api/v1?apiKey=${GEO_API_KEY}`;
@@ -30,6 +27,7 @@ function fetchLocationData(ip) {
     })
 }
 
+fetchLocationData('134.213.106.89');
 
 // Form submit
 const form = document.querySelector('form');
